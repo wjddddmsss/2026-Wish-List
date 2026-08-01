@@ -3,45 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>박정은의 Wish-List</title>
+    <title>박정은의 위시리스트</title>
+    <!-- 트렌디하고 고급스러운 웹 폰트 'Pretendard' -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
     <style>
-        /* 1. 폰트 불러오기 */
-        @font-face {
-            font-family: 'NanumSquareRound';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         @page {
             size: A4;
             margin: 15mm 12mm;
-            background-color: #f7f6f2;
+            background-color: #f8f7f4;
         }
 
-        /* 2. 전체적인 감각적인 웜톤 매거진 배경 */
         body { 
-            font-family: 'NanumSquareRound', sans-serif; 
-            background-color: #f7f6f2; /* 트렌디한 오트밀 톤 */
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: #f8f7f4; 
             color: #1a1a1a; 
             margin: 0; 
             padding: 50px 20px; 
             box-sizing: border-box;
             letter-spacing: -0.4px; 
+            -webkit-font-smoothing: antialiased;
         }
         *, *::before, *::after { box-sizing: border-box; }
         
         .container {
-            max-width: 1100px;
+            max-width: 1080px;
             margin: 0 auto;
         }
 
-        /* 3. 헤더 섹션 (아이코닉한 매거진 스타일) */
+        /* 헤더 섹션 */
         .header { 
             text-align: center;
             margin-bottom: 50px; 
             padding-bottom: 35px;
-            border-bottom: 1px solid #e2ded5;
+            border-bottom: 1px solid #eae5de;
         }
         
         .profile-container {
@@ -54,7 +49,7 @@
             display: inline-block;
             background-color: white;
             padding: 12px 12px 32px 12px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
             transform: rotate(-1.5deg);
             position: relative;
             z-index: 2;
@@ -68,7 +63,7 @@
             display: block;
         }
 
-        /* 힙하게 떠다니는 축하 이모지 */
+        /* 떠다니는 축하 이모지 */
         .confetti {
             position: absolute;
             font-size: 2rem;
@@ -95,11 +90,12 @@
         }
         .header p { 
             font-size: 0.95rem; 
-            color: #66635d; 
+            color: #76726b; 
             line-height: 1.6;
+            font-weight: 400;
         }
         
-        /* 4. 카테고리 탭 (트렌디한 알약 칩 스타일) */
+        /* 카테고리 탭 (알약 칩 스타일) */
         .category-tabs {
             text-align: center;
             margin-bottom: 30px;
@@ -115,9 +111,9 @@
         
         .tab-label {
             display: inline-block;
-            background-color: #eee9e0;
+            background-color: #ede9e1;
             color: #6b665e;
-            padding: 10px 18px;
+            padding: 10px 20px;
             font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
@@ -126,7 +122,7 @@
         }
         
         .tab-label:hover {
-            background-color: #e4dfd4;
+            background-color: #e3ded6;
             color: #111;
         }
 
@@ -135,12 +131,12 @@
         #filter-3to5:checked ~ .category-tabs .label-3to5,
         #filter-over5:checked ~ .category-tabs .label-over5,
         #filter-over10:checked ~ .category-tabs .label-over10 {
-            background-color: #1a1a1a;
+            background-color: #141414;
             color: #ffffff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* 5. 정렬 드롭다운 */
+        /* 정렬 드롭다운 */
         .sort-container {
             text-align: right;
             margin-bottom: 30px;
@@ -164,30 +160,29 @@
             border-color: #b0a99c;
         }
 
-        /* 6. 상품 그리드 레이아웃 (PC: 3열) */
+        /* 상품 그리드 레이아웃 (PC: 3열) */
         .grid-container {
             width: 100%;
             display: flex;
             flex-wrap: wrap; 
-            gap: 20px;
+            gap: 24px;
         }
         
         .card { 
-            width: calc(33.333% - 14px); 
+            width: calc(33.333% - 16px); 
             background: #ffffff; 
-            border: 1px solid #eae5dc;
-            border-radius: 20px;
-            font-size: 1rem; 
+            border: 1px solid #eae5de;
+            border-radius: 18px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
         }
         
         /* 필터링 로직 */
@@ -206,7 +201,7 @@
             display: block; 
             width: 100%;
             height: 280px;
-            background-color: #f0ece4;
+            background-color: #f2eee9;
             position: relative; 
             overflow: hidden;
         }
@@ -222,7 +217,7 @@
             transform: scale(1.04);
         }
         
-        /* 순위 번호 딱지 (모던한 원형 다크 뱃지) */
+        /* 순위 번호 딱지 */
         .rank-badge {
             position: absolute;
             top: 14px;
@@ -243,7 +238,7 @@
 
         /* 상품 정보 텍스트 */
         .info { 
-            padding: 22px 20px; 
+            padding: 22px 22px; 
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
@@ -251,27 +246,28 @@
         
         .price-tag { 
             display: block;
-            font-size: 1.25rem; 
+            font-size: 1.3rem; 
             font-weight: 800;  
             color: #111111;        
-            margin-bottom: 8px;
-            letter-spacing: -0.6px; 
+            margin-bottom: 6px;
+            letter-spacing: -0.7px; 
         }
         
         .title { 
             font-size: 1rem; 
             font-weight: 700; 
-            margin-bottom: 10px; 
+            margin-bottom: 6px; 
             line-height: 1.4;
             color: #222222;
         }
-        
-        .desc {
+
+        /* 💡 새로 추가된 옵션/사이즈 스타일 (차분하고 힙한 웜그레이) */
+        .option {
             font-size: 0.85rem;
-            color: #6b665e; 
-            line-height: 1.5;
-            margin-bottom: 24px; 
-            flex-grow: 1; 
+            font-weight: 600;
+            color: #7d776e;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
         
         /* 감각적인 버튼 */
@@ -279,7 +275,7 @@
             display: block; 
             width: 100%; 
             padding: 13px 0; 
-            background-color: #1a1a1a; 
+            background-color: #141414; 
             color: #fff; 
             text-decoration: none; 
             font-size: 0.9rem;
@@ -296,7 +292,7 @@
             transform: scale(0.98);
         }
 
-        /* 7. 모바일 반응형 최적화 (유동적인 2열 그리드로 힙하고 시원하게 배치) */
+        /* 모바일 반응형 (유동적인 2열 그리드) */
         @media (max-width: 768px) {
             body { padding: 25px 12px; }
             .header { margin-bottom: 35px; padding-bottom: 25px; }
@@ -312,21 +308,21 @@
             .sort-container { margin-bottom: 20px; text-align: center; padding-right: 0; }
             .sort-select { font-size: 0.8rem; padding: 8px 14px; width: 100%; }
 
-            /* 💡 모바일에서 한 줄에 2개씩(2열) 시원하고 보기 편하게 배치! */
-            .grid-container { gap: 12px; }
-            .card { width: calc(50% - 6px); border-radius: 14px; }
-            .card-img-wrapper { height: 180px; } /* 비율을 살려주어 답답하지 않게 조정 */
+            /* 모바일 2열 배치 최적화 */
+            .grid-container { gap: 14px; }
+            .card { width: calc(50% - 7px); border-radius: 14px; }
+            .card-img-wrapper { height: 180px; } 
             
             .rank-badge { 
                 width: 28px; height: 28px; line-height: 28px; 
                 font-size: 0.75rem; top: 10px; left: 10px; 
             } 
             
-            .info { padding: 14px 12px; } 
-            .price-tag { font-size: 1.05rem; margin-bottom: 6px; }
-            .title { font-size: 0.82rem; margin-bottom: 6px; line-height: 1.35; }
-            .desc { font-size: 0.72rem; margin-bottom: 16px; line-height: 1.4; }
-            .buy-btn { font-size: 0.78rem; padding: 10px 0; border-radius: 8px; }
+            .info { padding: 14px 14px; } 
+            .price-tag { font-size: 1.05rem; margin-bottom: 4px; }
+            .title { font-size: 0.82rem; margin-bottom: 4px; line-height: 1.35; }
+            .option { font-size: 0.74rem; margin-bottom: 14px; }
+            .buy-btn { font-size: 0.8rem; padding: 10px 0; border-radius: 10px; }
         }
     </style>
 </head>
@@ -338,13 +334,14 @@
                 <div class="confetti">✨</div>
                 <div class="confetti">🎊</div>
                 <div class="confetti">💖</div>
+		<div class="confetti">🎂</div>
                 <div class="polaroid-wrapper">
                     <img src="https://pbs.twimg.com/media/HBC_Bp-a8AAsy3F?format=jpg&name=large" alt="프로필 이미지" class="header-profile-img">
                 </div>
             </div>
             
-            <h1>박정은의 2026 위시리스트</h1>
-        
+            <h1>2026 위시리스트</h1>
+            
         </div>
 
         <input type="radio" name="category" id="filter-all" checked>
@@ -364,9 +361,9 @@
         <!-- 정렬 기능 UI -->
         <div class="sort-container">
             <select id="sort-select" class="sort-select" onchange="sortCards()">
-                <option value="wish">가장 갖고 싶은 순 ✨</option>
-                <option value="price-asc">낮은 가격순 ⬇️</option>
-                <option value="price-desc">높은 가격순 ⬆️</option>
+                <option value="wish">갖고 싶은 순 </option>
+                <option value="price-asc">낮은 가격순</option>
+                <option value="price-desc">높은 가격순</option>
             </select>
         </div>
 
@@ -374,14 +371,14 @@
         <div class="grid-container" id="grid-container">
             
             <!-- [3만원 이하] -->
-            <div class="card cat-under3" data-price="18000" data-wish="3">
+            <div class="card cat-under3" data-price="18000" data-wish="15">
                 <a href="https://brand.naver.com/lush/products/13630779849/" target="_blank" class="card-img-wrapper">
                     <img src="https://image.msscdn.net/thumbnails/images/prd_img/20260626/6735487/detail_6735487_17824371197158_big.jpg?w=1200" alt="한교동 배쓰 밤">
                 </a>
                 <div class="info">
                     <span class="price-tag">18,000원</span>
                     <div class="title">한교동 115g - 배쓰 밤</div>
-                    <div class="desc">사유: 귀여움;.</div>
+                    <div class="option">옵션: 기본 115g</div>
                     <a href="https://brand.naver.com/lush/products/13630779849/" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
@@ -394,98 +391,98 @@
                 <div class="info">
                     <span class="price-tag">16,500원</span>
                     <div class="title">닥터텅스 스마트 치실 2p</div>
-                    <div class="desc">내 인생 없어서는 안 되는 물건. 진짜 너무 갖고싶음 제발요</div>
+		<div class="option">소모품 아니고 필수품</div>
                     <a href="https://www.coupang.com/vp/products/9435332875?itemId=28057556971&vendorItemId=95014318195&src=1191000&spec=10999999&addtag=400&ctag=9435332875&lptag=CFM72093786&itime=20260801194111&pageType=PRODUCT&pageValue=9435332875&wPcid=17731536905805846302119&wRef=&wTime=20260801194111&redirect=landing&abTestInfo=&mcid=f34e58a4547242db9a8faf0290acecb6&sharesource=sharebutton&style=&isshortened=Y&settlement=N" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3만원 이하] -->
-            <div class="card cat-under3" data-price="28000" data-wish="4">
+            <div class="card cat-under3" data-price="28000" data-wish="11">
                 <a href="https://m.seoulbased.com/product/%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%B8%94%EB%9E%99-%EB%8B%B9%EC%9D%BC%EB%B0%B0%EC%86%A1%EB%B0%B4%EB%94%A9%EA%BE%B8%EC%95%88%EA%BE%B8%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EB%AA%A8%ED%8B%B0-%ED%8F%B4%EB%94%A9-%EC%9B%A8%EC%9D%B4%EC%8A%A4%ED%8A%B8-%ED%8C%AC%EC%B8%A0-4color/4281/category/27/display/1/?utm_medium=paid&utm_source=ig&utm_id=120253660948950150&utm_content=120253660948930150&utm_term=120253660948940150&utm_campaign=120253660948950150&fbclid=PAYm9jbATY7RtwZG9mAmZkaWQWULkz_K3MJYAkFc6PP4GLGabRfKARcWV4dG4DYWVtATAAYWRpZAGrOhFN_Zdmc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnPeZvy_F9jfPY2ITDQlOAY9YAwWeWB5jrmr5i5Rrg8alv_7aAs3M2w3GUUqo_aem_TGworewYcrJUOSRxan0D5A" target="_blank" class="card-img-wrapper">
                     <img src="https://m.seoulbased.com/web/product/big/202606/6a66c8a07e3241c5dc9187b475cbe07b.webp" alt="모티 폴딩 웨이스트 팬츠">
                 </a>
                 <div class="info">
                     <span class="price-tag">28,000원</span>
-                    <div class="title">모티 폴딩 웨이스트 팬츠-블랙</div>
-                    <div class="desc">여름 후들 체육복 필요.</div>
+                    <div class="title">모티 폴딩 웨이스트 팬츠</div>
+                    <div class="option">옵션: 블랙 / Free</div>
                     <a href="https://m.seoulbased.com/product/%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%B8%94%EB%9E%99-%EB%8B%B9%EC%9D%BC%EB%B0%B0%EC%86%A1%EB%B0%B4%EB%94%A9%EA%BE%B8%EC%95%88%EA%BE%B8%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EB%AA%A8%ED%8B%B0-%ED%8F%B4%EB%94%A9-%EC%9B%A8%EC%9D%B4%EC%8A%A4%ED%8A%B8-%ED%8C%AC%EC%B8%A0-4color/4281/category/27/display/1/?utm_medium=paid&utm_source=ig&utm_id=120253660948950150&utm_content=120253660948930150&utm_term=120253660948940150&utm_campaign=120253660948950150&fbclid=PAYm9jbATY7RtwZG9mAmZkaWQWULkz_K3MJYAkFc6PP4GLGabRfKARcWV4dG4DYWVtATAAYWRpZAGrOhFN_Zdmc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnPeZvy_F9jfPY2ITDQlOAY9YAwWeWB5jrmr5i5Rrg8alv_7aAs3M2w3GUUqo_aem_TGworewYcrJUOSRxan0D5A" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3만원 이하] -->
-            <div class="card cat-under3" data-price="23000" data-wish="2">
+            <div class="card cat-under3" data-price="23000" data-wish="14">
                 <a href="https://brand.naver.com/lush/products/7944653235/" target="_blank" class="card-img-wrapper">
                     <img src="https://shop-phinf.pstatic.net/20230119_221/16741125960509aQ4V_JPEG/75248375759831172_332262694.jpg?type=o1000" alt="딥 슬립 65g - 마그네슘 마사지 바">
                 </a>
                 <div class="info">
                     <span class="price-tag">23,000원</span>
-                    <div class="title">[러쉬] 딥 슬립 65g - 마그네슘 마사지 바</div>
-                    <div class="desc">사유: 만성 피로를 풀어줄 구원자;.</div>
+                    <div class="title">[러쉬] 딥 슬립 마그네슘 마사지 바</div>
+                    <div class="option">옵션: 65g</div>
                     <a href="https://brand.naver.com/lush/products/7944653235" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3~5만원대] -->
-            <div class="card cat-3to5" data-price="36900" data-wish="4">
+            <div class="card cat-3to5" data-price="36900" data-wish="12">
                 <a href="https://ritzyseoul.com/product/detail.html?product_no=150&cate_no=24&display_group=1&fbclid=PAVERFWATY7CtwZG9mAmV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpzuuSbX64sIsUo3VH9rI65tU_hi0hVYxASzuXGv1ZPsOiIZ0KX84ENO5oU5N_aem_rZAgVF4eu9yKLDil23hcSg#none/" target="_blank" class="card-img-wrapper">
                     <img src="https://ecimg.cafe24img.com/pg1426b29319450086/ritzyseoul/web/product/small/20260514/1d07138c0baadb82b3a2ec1d8aef0bc7.jpg" alt="스포츠 캡내장 액티브 슬리브리스">
                 </a>
                 <div class="info">
                     <span class="price-tag">36,900원</span>
-                    <div class="title">스포츠 캡내장 액티브 슬리브리스 딥그레이 M</div>
-                    <div class="desc">사유: 너거가 안 사주면 내가 언젠간 살 아이템. 아니 비싸서 안 살 수도ㅋ 쓰껄~</div>
+                    <div class="title">스포츠 캡내장 액티브 슬리브리스</div>
+                    <div class="option">옵션: 딥그레이 / M</div>
                     <a href="https://ritzyseoul.com/product/detail.html?product_no=150&cate_no=24&display_group=1&fbclid=PAVERFWATY7CtwZG9mAmV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpzuuSbX64sIsUo3VH9rI65tU_hi0hVYxASzuXGv1ZPsOiIZ0KX84ENO5oU5N_aem_rZAgVF4eu9yKLDil23hcSg#none/" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3~5만원대] -->
-            <div class="card cat-3to5" data-price="33210" data-wish="12">
+            <div class="card cat-3to5" data-price="33210" data-wish="16">
                 <a href="https://gift.kakao.com/product/13262965" target="_blank" class="card-img-wrapper">
                     <img src="https://img1.kakaocdn.net/thumb/R810x0@2x.fwebp.q82/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Feditor%2FtXdo2bxnkjMVMuTCKEqgqg%2FdlePH0zZl7wXgcRIb4HtHr-rekY3LAXftp6G5SHz_2c.jpg" alt="도씨 생일 케이크 벌스데이 잠옷 홈웨어 세트">
                 </a>
                 <div class="info">
                     <span class="price-tag">33,210원</span>
-                    <div class="title">[카카오단독] 도씨 생일 케이크 벌스데이 잠옷 홈웨어 세트 8월, 그린</div>
-                    <div class="desc">사유: 귀엽</div>
+                    <div class="title">도씨 생일 케이크 벌스데이 잠옷 세트</div>
+                    <div class="option">옵션: 8월, 그린 / Free</div>
                     <a href="https://gift.kakao.com/product/13262965" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3~5만원대] -->
-            <div class="card cat-3to5" data-price="48450" data-wish="1">
-                <a href="https://www.29cm" target="_blank" class="card-img-wrapper">
+            <div class="card cat-3to5" data-price="48450" data-wish="2">
+                <a href="https://www.29cm.co.kr/products/4019084?reward_key=RK_pkZeH6DHLyZ6c1j0UigDy7modUdFdIqK&is_retargeting=true&af_click_lookback=7d&deep_link_value=app29cm%3A%2F%2Fweb%2Fhttps%253A%252F%252Fwww.29cm.co.kr%252Fproducts%252F4019084%253Freward_key%253DRK_pkZeH6DHLyZ6c1j0UigDy7modUdFdIqK&af_dp=app29cm%3A%2F%2Fweb%2Fhttps%253A%252F%252Fwww.29cm.co.kr%252Fproducts%252F4019084%253Freward_key%253DRK_pkZeH6DHLyZ6c1j0UigDy7modUdFdIqK&pid=29cm_pdp_share&utm_source=29cm_pdp_share&shortlink=tk02wjan&source_caller=api_v2" target="_blank" class="card-img-wrapper">
                     <img src="https://img.29cm.co.kr/item/202606/11f16ad85ebab327b357f579bb28565b.jpg?width=1440&format=webp" alt="[리뉴얼]_온 어데이 숄더백">
                 </a>
                 <div class="info">
                     <span class="price-tag">48,450원</span>
-                    <div class="title">[리뉴얼]_온 어데이 숄더백</div>
-                    <div class="desc">사유: 컬러는 아직 못 정함 어울리는 걸로 부탁띠니 상세페이지처럼 가꾸하고싶음</div>
+                    <div class="title">[리뉴얼] 온 어데이 숄더백</div>
+                    <div class="option">옵션: 색깔 못 정함, 어울리는 걸로 사줘</div>
                     <a href="https://www.29cm.co.kr/products/4019084?reward_key=RK_pkZeH6DHLyZ6c1j0UigDy7modUdFdIqK&is_retargeting=true&af_click_lookback=7d&deep_link_value=app29cm%3A%2F%2Fweb%2Fhttps%253A%252F%252Fwww.29cm.co.kr%252Fproducts%252F4019084%253Freward_key%253DRK_pkZeH6DHLyZ6c1j0UigDy7modUdFdIqK&af_dp=app29cm%3A%2F%2Fweb%2Fhttps%253A%252F%252Fwww.29cm.co.kr%252Fproducts%252F4019084%253Freward_key%253DRK_pkZeH6DHLyZ6c1j0UigDy7modUdFdIqK&pid=29cm_pdp_share&utm_source=29cm_pdp_share&shortlink=tk02wjan&source_caller=api_v2" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3~5만원대] -->
-            <div class="card cat-3to5" data-price="42120" data-wish="2">
-                <a href="https://www.29cm" target="_blank" class="card-img-wrapper">
+            <div class="card cat-3to5" data-price="42120" data-wish="3">
+                <a href="https://www.musinsa.com/products/6227338?af_siteid=1003139529&af_dp=musinsaad%3A%2F%2Fweb%3Flink%3Dhttps%253A%252F%252Fwww.musinsa.com%252Fproducts%252F6227338&is_retargeting=true&shortlink=hu3hlq3w&source_caller=sdk&pid=af_app_invites&af_force_deeplink=true&af_referrer_customer_id=sub06210&af_channel=mobile_share&af_referrer_uid=1576809307012-2220271" target="_blank" class="card-img-wrapper">
                     <img src="https://image.msscdn.net/thumbnails/images/goods_img/20260331/6227338/6227338_17826979865946_big.jpeg?w=1200" alt="WEB LOGO T-SHIRTS [GREY/PINK]">
                 </a>
                 <div class="info">
                     <span class="price-tag">42,120원</span>
-                    <div class="title">WEB LOGO T-SHIRTS [GREY/PINK]</div>
-                    <div class="desc">사유: 여름 반팔은 다다익선임</div>
+                    <div class="title">WEB LOGO T-SHIRTS</div>
+                    <div class="option">옵션: GREY/PINK / M</div>
                     <a href="https://www.musinsa.com/products/6227338?af_siteid=1003139529&af_dp=musinsaad%3A%2F%2Fweb%3Flink%3Dhttps%253A%252F%252Fwww.musinsa.com%252Fproducts%252F6227338&is_retargeting=true&shortlink=hu3hlq3w&source_caller=sdk&pid=af_app_invites&af_force_deeplink=true&af_referrer_customer_id=sub06210&af_channel=mobile_share&af_referrer_uid=1576809307012-2220271" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3~5만원대] -->
-            <div class="card cat-3to5" data-price="38940" data-wish="5">
+            <div class="card cat-3to5" data-price="38940" data-wish="8">
                 <a href="https://www.coupang.com/" target="_blank" class="card-img-wrapper">
                     <img src="https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9518498180/B.webp?403118865" alt="홈플래닛 LED 안티 블루라이트 와이드 스탠드 80cm">
                 </a>
                 <div class="info">
                     <span class="price-tag">38,940원</span>
-                    <div class="title">홈플래닛 LED 안티 블루라이트 와이드 스탠드 80cm</div>
-                    <div class="desc">사유: 내 스탠드 사망직전 ㅜ,,ㅜ</div>
+                    <div class="title">홈플래닛 LED 와이드 스탠드</div>
+                    <div class="option">옵션: 80cm (화이트)</div>
                     <a href="https://www.coupang.com/vp/products/7539167287?itemId=19814203400&vendorItemId=86916285627&src=1191000&spec=10999999&addtag=400&ctag=7539167287&lptag=CFM72093786&itime=20260801202902&pageType=PRODUCT&pageValue=7539167287&wPcid=17731536905805846302119&wRef=&wTime=20260801202902&redirect=landing&abTestInfo=&mcid=2898bc9a3c34415b8145b4a3af4d27d1&sharesource=sharebutton&style=&isshortened=Y&settlement=N" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
@@ -497,86 +494,86 @@
                 </a>
                 <div class="info">
                     <span class="price-tag">46,000원</span>
-                    <div class="title">스탠리 퀜처 H2.0 플로우 스테이트 텀블러 591ml</div>
-                    <div class="desc">사유: 존나 크거나 존나 작은 텀블러만 보유. 너무 필요한 591ml</div>
+                    <div class="title">스탠리 퀜처 H2.0 텀블러</div>
+                    <div class="option">옵션: 591ml / 스태리 스파클</div>
                     <a href="https://brand.naver.com/stanley_korea/products/13630832956" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [3~5만원대] -->
-            <div class="card cat-3to5" data-price="45010" data-wish="3">
+            <div class="card cat-3to5" data-price="45010" data-wish="9">
                 <a href="https://www.musinsa.com/products/5068044" target="_blank" class="card-img-wrapper">
                     <img src="https://image.msscdn.net/thumbnails/images/goods_img/20250425/5068044/5068044_17455751510131_big.jpg?w=1200" alt="MLB 어센틱 모자">
                 </a>
                 <div class="info">
                     <span class="price-tag">45,010원</span>
-                    <div class="title">MLB 어센틱 샌디에이고 파드리스 얼트 브라운</div>
-                    <div class="desc">사유: 없음 난 그냥 모자가 좋음</div>
+                    <div class="title">MLB 어센틱 샌디에이고 파드리스</div>
+                    <div class="option">옵션: 브라운 / 714 (57.7cm)</div>
                     <a href="https://www.musinsa.com/products/5068044" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [5~10만원대] -->
-            <div class="card cat-over5" data-price="51980" data-wish="1">
+            <div class="card cat-over5" data-price="51980" data-wish="5">
                 <a href="https://www.29cm.co.kr/products/3981828" target="_blank" class="card-img-wrapper">
                     <img src="https://img.29cm.co.kr/next-product/2026/05/19/14b8b323523644e188b0eb234f6bf37e_20260519123719.jpg?width=1440&format=webp" alt="탠 헬로키티 세트 BROWN">
                 </a>
                 <div class="info">
                     <span class="price-tag">51,980원</span>
-                    <div class="title">탠 헬로키티 세트 BROWN</div>
-                    <div class="desc">쪼리 필요함, 귀여운 키티를 봐. 안 살 수 있니?</div>
+                    <div class="title">탠 헬로키티 세트</div>
+                    <div class="option">옵션: BROWN / 240mm</div>
                     <a href="https://www.29cm.co.kr/products/3981828" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [5~10만원대] -->
-            <div class="card cat-over5" data-price="74000" data-wish="2">
+            <div class="card cat-over5" data-price="74000" data-wish="6">
                 <a href="https://kream.co.kr/products/58293" target="_blank" class="card-img-wrapper">
                     <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fthumbnail.coupangcdn.com%2Fthumbnails%2Fremote%2F492x492ex%2Fimage%2Fvendor_inventory%2F9b17%2F9b956b46bb02ad94670b33a32cd62668a800e49c5d061cfb9cc22d4d2575.jpg&type=sc960_832" alt="헌터 플레이 쇼트 레인 부츠">
                 </a>
                 <div class="info">
                     <span class="price-tag">74,000원</span>
-                    <div class="title">(W) 헌터 플레이 쇼트 레인 부츠 블랙</div>
-                    <div class="desc">나도 비 올 때 물 웅덩이 좀 밟아보자.</div>
+                    <div class="title">헌터 플레이 쇼트 레인 부츠</div>
+                    <div class="option">옵션: 블랙 / US 7W (UK 5)</div>
                     <a href="https://kream.co.kr/products/58293" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [5~10만원대] -->
-            <div class="card cat-over5" data-price="59000" data-wish="3">
+            <div class="card cat-over5" data-price="59000" data-wish="10">
                 <a href="https://kream.co.kr/products/310266" target="_blank" class="card-img-wrapper">
                     <img src="https://kream-phinf.pstatic.net/MjAyNTEyMjJfMTY5/MDAxNzY2MzgzNTUzNzg1.PmFi-Z3IrFR3LLayah9y_0-E3J79cM4ln1ulmchyV_0g.Hy075H9dHQWXU2KvgYjKxe-FbiQ5VvmqnCKVoJ9ahKIg.PNG/a_40f306bf1dc148fcac676a5a311a93cb.png?type=r_webp" alt="케이스티파이 아이폰 케이스">
                 </a>
                 <div class="info">
                     <span class="price-tag">59,000원</span>
-                    <div class="title">케이스티파이 아이폰 맥세이프 리플 케이스 화이트</div>
-                    <div class="desc">몇 년 째 갈망템이긴 해</div>
+                    <div class="title">케이스티파이 맥세이프 리플 케이스</div>
+                    <div class="option">옵션: 화이트 / 14 PRO</div>
                     <a href="https://kream.co.kr/products/310266" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
             
             <!-- [10만원 이상] -->
-            <div class="card cat-over10" data-price="109000" data-wish="1">
+            <div class="card cat-over10" data-price="109000" data-wish="7">
                 <a href="https://kream.co.kr/products/172348" target="_blank" class="card-img-wrapper">
                     <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20250531_30%2F1748670499071gYdRa_PNG%2F86711763335126570_1446768381.png&type=sc960_832" alt="베이프 티셔츠">
                 </a>
                 <div class="info">
                     <span class="price-tag">109,000원</span>
-                    <div class="title">베이프 ABC 카모 컬리지 티셔츠 화이트 그린</div>
-                    <div class="desc">늦은 유행 탑승. 영크크 너무 희망해요//여름 반팔 다다익선.</div>
+                    <div class="title">베이프 ABC 카모 컬리지 티셔츠</div>
+                    <div class="option">옵션: 화이트 그린 / L (라지)</div>
                     <a href="https://kream.co.kr/products/172348" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
 
             <!-- [10만원 이상] -->
-            <div class="card cat-over10" data-price="103000" data-wish="2">
+            <div class="card cat-over10" data-price="103000" data-wish="13">
                 <a href="https://kream.co.kr/products/287011" target="_blank" class="card-img-wrapper">
                     <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20250428_150%2F1745816540400B4j5r_JPEG%2F409908343428408_1257678568.JPG&type=sc960_832" alt="아식스 라이프워커">
                 </a>
                 <div class="info">
                     <span class="price-tag">103,000원</span>
-                    <div class="title">아식스 라이프워커 010 네이비 블루 - 3E Wide</div>
-                    <div class="desc">발 편하대요 그리고 잘 신을 거 같음</div>
+                    <div class="title">아식스 라이프워커 010-3E Wide</div>
+                    <div class="option">옵션: 네이비 블루 / 240 (3E Wide)</div>
                     <a href="https://kream.co.kr/products/287011" target="_blank" class="buy-btn">페이지로 이동</a>
                 </div>
             </div>
@@ -638,7 +635,7 @@
                 if (!badge) {
                     badge = document.createElement('div');
                     badge.className = 'rank-badge';
-                    imgWrapper.api ? '' : imgWrapper.appendChild(badge); // 안전장치
+                    imgWrapper.appendChild(badge);
                 }
 
                 if (isVisible) {
