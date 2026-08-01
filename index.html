@@ -256,10 +256,31 @@
         }
 
         /* 모바일 화면 */
+        /* 모바일 화면 (핸드폰에서도 무조건 1줄에 3개씩!) */
         @media (max-width: 768px) {
-            .card { width: 98%; margin: 0 1% 20px 1%; }
-            .header-profile-img { width: 200px; height: 200px; }
+            /* 1. 카드를 PC처럼 3등분 폭으로 유지 */
+            .card { width: 31.33%; margin: 0 1% 15px 1%; } 
+            
+            /* 2. 작은 화면에 맞게 사진 높이 축소 */
+            .card-img-wrapper { height: 110px; line-height: 110px; } 
+            
+            /* 3. 순위 딱지 크기도 앙증맞게 축소 */
+            .rank-badge { 
+                width: 24px; height: 24px; line-height: 24px; 
+                font-size: 0.85rem; top: 5px; left: 5px; 
+            } 
+            
+            /* 4. 정보 칸 여백과 폰트 크기 전체 축소 (깨짐 방지) */
+            .info { padding: 10px 8px; } 
+            .price-tag { font-size: 0.95rem; margin-bottom: 5px; }
+            .title { font-size: 0.75rem; margin-bottom: 5px; }
+            .desc { font-size: 0.65rem; margin-bottom: 10px; }
+            .buy-btn { font-size: 0.7rem; padding: 8px 0; border-radius: 6px; }
+            
+            /* 5. 기타 모바일 최적화 */
+            .header-profile-img { width: 160px; height: 160px; }
             .sort-container { text-align: center; padding-right: 0; }
+            .tab-label { font-size: 0.75rem; padding: 6px 8px; margin: 0 2px; }
         }
     </style>
 </head>
@@ -316,7 +337,7 @@
             <!-- [3만원 이하] -->
             <div class="card cat-under3" data-price="16500" data-wish="1">
                 <a href="https://www.coupang.com/vp/products/9435332875?itemId=28057556971&vendorItemId=95014318195&src=1191000&spec=10999999&addtag=400&ctag=9435332875&lptag=CFM72093786&itime=20260801194111&pageType=PRODUCT&pageValue=9435332875&wPcid=17731536905805846302119&wRef=&wTime=20260801194111&redirect=landing&abTestInfo=&mcid=f34e58a4547242db9a8faf0290acecb6&sharesource=sharebutton&style=&isshortened=Y&settlement=N" target="_blank" class="card-img-wrapper">
-                    <img src="https://postfiles.pstatic.net/MjAyNTA0MTVfMjk1/MDAxNzQ0NzE4NDQ4OTIz.iNaNkwb2t3LC0SdV8NdelUiSXl-s8qFUBGUFCoddZLwg.HvW-b2g8ukDm4Ldil1kkXmvvEzjar4w4qjNZWlKGHSog.JPEG/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.jpg?type=w3840" alt="닥터텅스 스마트 치실" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0000/A00000000864627ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5" alt="닥터텅스 스마트 치실" style="width: 100%; height: 100%; object-fit: cover;">
                 </a>
                 <div class="info">
                     <span class="price-tag">16,500원</span>
@@ -459,7 +480,7 @@
             <!-- [5~10만원대] -->
             <div class="card cat-over5" data-price="74000" data-wish="2">
                 <a href="https://kream.co.kr/products/58293" target="_blank" class="card-img-wrapper">
-                    <img src="https://kream-phinf.pstatic.net/MjAyNTA2MTdfMjUz/MDAxNzUwMTMxNDU0MjQ4.XlzXgMGcm2r8kH1dYcbwCqSLoJYL-KLvCIrN4Nn9nl8g.G8c0c0GG9AMzIqMZ778nE6j2Qr0Ke_YTgA4k_XIjXw4g.PNG/a_ca7b0210fcca44388681d86b0fed35ad.png?type=r_webp" alt="(W) 헌터 플레이 쇼트 레인 부츠 블랙" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://kream-phinf.pstatic.net/MjAyNTA2MTdfMjk1/MDAxNzUwMTMxNDU0Mjkz.zlvyargJHhGZX_2iIWqb_Ox8M9To2siCtXW64cARsesg.THXDAboceY1Ayw7Ewvj4peefV3VGKeMoe9VkTXSZgxEg.PNG/a_300bccd202aa40a6a93e28e09303234b.png?type=l_webp" alt="(W) 헌터 플레이 쇼트 레인 부츠 블랙" style="width: 100%; height: 100%; object-fit: cover;">
                 </a>
                 <div class="info">
                     <span class="price-tag">74,000원</span>
@@ -485,7 +506,7 @@
             <!-- [10만원 이상] -->
             <div class="card cat-over10" data-price="109000" data-wish="1">
                 <a href="https://kream.co.kr/products/172348" target="_blank" class="card-img-wrapper">
-                    <img src="https://kream-phinf.pstatic.net/MjAyNTA3MzBfMTQ1/MDAxNzUzODcwMzY1NzY5.6_LZEio0sj_ca4feqi3Y6s7rN8ZDzZxBT0VY5iTj_jog.OAZX0wUagZB56Aa9yT4v4ZkDyNjOZYWBbA64RpXgWpIg.PNG/a_a93869c20fb242ea9184197feb469038.png?type=r_webp" alt="베이프 ABC 카모 컬리지 티셔츠 화이트 그린" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://kream-phinf.pstatic.net/MjAyNjA0MTdfMTQ2/MDAxNzc2NDA4NzEwNDc5.0ztvkce-fFoZC_DUrHFaWp0DVu16bHszwVEwkFBC8-gg.JjyqSk4edFwbrT11XJuEnj_C5bw-FNk6yYVNOfu8Wxsg.PNG/a_8300f4b95f6e40c8b680fde38985614f.png?type=l_webp" alt="베이프 ABC 카모 컬리지 티셔츠 화이트 그린" style="width: 100%; height: 100%; object-fit: cover;">
                 </a>
                 <div class="info">
                     <span class="price-tag">109,000원</span>
@@ -498,7 +519,7 @@
             <!-- [10만원 이상] -->
             <div class="card cat-over10" data-price="103000" data-wish="2">
                 <a href="https://kream.co.kr/products/287011" target="_blank" class="card-img-wrapper">
-                    <img src="https://kream-phinf.pstatic.net/MjAyNjA2MjlfNjMg/MDAxNzgyNzI4NDcwNTk0.cwZLYBP-SqIy4U5oHmU7YrfimyNxeH8SoOlhaPke0WIg.5sCDL9aGLqBafCgC6aWQNA5Fb8Ftr3q69RfNp_CCghEg.PNG/a_66e74570334649bfb44413252e05b3e5.png?type=r_webp" alt="아식스 라이프워커 010 네이비 블루 - 3E Wide" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://kream-phinf.pstatic.net/MjAyNjA2MjlfMTk1/MDAxNzgyNzI4NDcxNDg5.7AduxRnvz4Ofb13KBsMX7LLHaHoLIUwFgUsAK81t1_sg.zJKyWTf68n-vyJKEOBZ-1QVLvvCaPNFuUHgulvFcKdwg.PNG/a_687dd3d0b16c410886b8cf3befbba694.png?type=l_webp" alt="아식스 라이프워커 010 네이비 블루 - 3E Wide" style="width: 100%; height: 100%; object-fit: cover;">
                 </a>
                 <div class="info">
                     <span class="price-tag">103,000원</span>
