@@ -43,14 +43,49 @@
             border-bottom: 1px solid #eaeaea;
         }
         
-        /* 폴라로이드 스타일 프로필 이미지 */
+     /* 폴라로이드 스타일 프로필 이미지 */
+        /* 💡 이모티콘이 날아다닐 기준점(컨테이너) 추가 */
+        .polaroid-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
         .polaroid-wrapper {
             display: inline-block;
             background-color: white;
             padding: 10px 10px 25px 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
             transform: rotate(-2deg);
+            position: relative;
+            z-index: 2; /* 사진이 이모티콘보다 앞에 오도록 설정 */
+        }
+
+        .header-profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            display: block;
+        }
+
+        /* 💡 둥둥 떠다니는 컨페티/이모티콘 효과 */
+        .confetti {
+            position: absolute;
+            font-size: 2rem;
+            z-index: 1;
+            animation: floatEmoji 2s ease-in-out infinite alternate;
+        }
+        
+        /* 이모티콘 위치와 움직이는 타이밍을 다르게 설정 */
+        .confetti:nth-child(1) { top: -15px; left: -25px; animation-delay: 0s; }
+        .confetti:nth-child(2) { top: 30px; right: -35px; animation-delay: 0.5s; font-size: 1.5rem; }
+        .confetti:nth-child(3) { bottom: 30px; left: -35px; animation-delay: 1s; font-size: 1.8rem; }
+        .confetti:nth-child(4) { bottom: -10px; right: -20px; animation-delay: 1.5s; }
+
+        @keyframes floatEmoji {
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(-15px) scale(1.1) rotate(15deg); }
         }
 
         .header-profile-img {
@@ -287,11 +322,21 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="polaroid-wrapper">
-                <img src="https://pbs.twimg.com/media/HBC_Bp-a8AAsy3F?format=jpg&name=large" alt="프로필 이미지" class="header-profile-img">
+           <!-- 💡 사진과 이모티콘을 하나로 묶어주는 컨테이너 -->
+            <div class="polaroid-container">
+                <!-- 날아다닐 이모티콘들 (원하는 이모티콘으로 바꿔도 됩니다!) -->
+                <div class="confetti">🎉</div>
+                <div class="confetti">✨</div>
+                <div class="confetti">🎊</div>
+                <div class="confetti">💖</div>
+                
+                <div class="polaroid-wrapper">
+                    <!-- 프로필 이미지 주소 -->
+                    <img src="https://pbs.twimg.com/media/HBC_Bp-a8AAsy3F?format=jpg&name=large" alt="프로필 이미지" class="header-profile-img">
+                </div>
             </div>
             
-            <h1>나 박정은의 위시리슽트!</h1>
+            <h1>나 박정은의 Wish-List!</h1>
             <p>협찬 앤나 축하 감사드려요^.,^🦁</p>
         </div>
 
